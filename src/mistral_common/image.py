@@ -21,7 +21,7 @@ def download_image(url: str) -> Image.Image:
     headers = {"User-Agent": f"mistral-common/{__version__}"}
     try:
         # Make a request to download the image
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout=1.0)
         response.raise_for_status()  # Raise an error for bad responses (4xx, 5xx)
 
         # Convert the image content to a PIL Image
